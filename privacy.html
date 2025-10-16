@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Privacy Policy – Brunnr Educational Enhancement Extension</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; line-height: 1.6; padding: 0 20px; }
+    h1, h2 { color: #004080; }
+    code { background: #f0f0f0; padding: 2px 6px; border-radius: 3px; }
+  </style>
+</head>
+<body>
+<h1>Privacy Policy</h1>
+<p>Last updated: October 2025</p>
+
+<h2>Overview</h2>
+<p>
+The <strong>Brunnr Educational Enhancement Extension</strong> ("the Extension") provides supplemental "Mastery in a Minute"
+instructional videos
+for Grade 4 multiplication lessons on MathAcademy. This policy explains what information we collect, how it is used, and the rights of
+users and schools.
+</p>
+
+<h2>Information We Collect</h2>
+<h3>For Approved School Users Only:</h3>
+<ul>
+  <li><strong>User identification:</strong> Chrome profile email address obtained via Chrome Identity API for access validation and
+progress tracking.</li>
+  <li><strong>Lesson context:</strong> Current lesson ID, lesson number, topic ID, and page URL from MathAcademy.</li>
+  <li><strong>Video engagement metrics:</strong> Play, pause, ended events; current playback time, duration, completion percentage;
+volume and playback rate settings; fullscreen status.</li>
+  <li><strong>Learning performance data:</strong> Quiz attempt results (correct/incorrect), time spent on lessons, completion status,
+which specific questions were answered.</li>
+  <li><strong>Session information:</strong> Unique session ID generated per browser session, timestamps for all interactions.</li>
+  <li><strong>Video watch history:</strong> Which videos have been watched to completion (stored locally to prevent re-gating).</li>
+</ul>
+
+<h3>For Non-Approved Users:</h3>
+<ul>
+  <li><strong>Access check only:</strong> Chrome profile email is checked against our approved users list. If not approved, no further
+data is collected and the extension remains inactive.</li>
+</ul>
+
+<h2>How We Use Information</h2>
+<ul>
+  <li>To verify school membership and provide access to educational content.</li>
+  <li>To select and display appropriate instructional videos based on lesson content.</li>
+  <li>To enforce video watching requirements when students answer questions incorrectly.</li>
+  <li>To track learning progress and video effectiveness for educational improvement.</li>
+  <li>To prevent re-gating of previously watched videos across sessions.</li>
+  <li>To help teachers and administrators understand student engagement and performance.</li>
+</ul>
+
+<h2>Data Storage and Transmission</h2>
+<p>
+<strong>Local Storage:</strong> Video watch history and session data are stored locally in Chrome storage to maintain state across page
+loads and sessions.
+</p>
+<p>
+<strong>Remote Storage:</strong> Analytics and performance data are transmitted securely over HTTPS to our AWS-hosted backend
+infrastructure:
+</p>
+<ul>
+  <li>API endpoints: <code>https://ayorzefv46.execute-api.us-east-1.amazonaws.com</code> (development) and
+<code>https://t9j22k9r3h.execute-api.us-east-1.amazonaws.com</code> (production)</li>
+  <li>Video content served via AWS CloudFront CDN: <code>https://d8x5e3fhkw1c9.cloudfront.net</code></li>
+  <li>All data stored in AWS RDS Postgres databases with encryption at rest</li>
+</ul>
+
+<h2>Data Sharing and Retention</h2>
+<p>
+We do <strong>not</strong> sell, rent, or share personal data with any third parties outside of the educational institution.
+Data is used exclusively for educational purposes within approved school programs.
+Analytics data is retained for the duration of the school year for reporting purposes, after which it may be anonymized for aggregate
+analysis.
+</p>
+
+<h2>Student Data and COPPA / FERPA Compliance</h2>
+<p>
+This extension is designed for use in K-12 educational settings where the school provides appropriate consent on behalf of students
+under the
+Children's Online Privacy Protection Act (COPPA). All student data is processed in accordance with the Family Educational Rights and
+Privacy Act (FERPA).
+Student data remains under the control of the educational institution and is used solely for educational purposes.
+</p>
+
+<h2>Video Gating Mechanism</h2>
+<p>
+When a student answers a question incorrectly and a relevant remedial video exists, the Extension disables the "Continue" button until
+the student watches
+at least 95% of the video. This ensures students receive necessary support before progressing. The system remembers watched videos
+locally to avoid
+unnecessary repetition. Introductory videos at the start of lessons can be skipped at any time.
+</p>
+
+<h2>Browser Permissions</h2>
+<p>
+The Extension requests the minimal permissions necessary to operate:
+</p>
+<ul>
+  <li><code>identity & identity.email</code>: To verify school membership via Chrome profile email</li>
+  <li><code>storage</code>: To save video watch history and session data locally</li>
+  <li><code>activeTab</code>: To detect MathAcademy lessons and inject videos</li>
+  <li><code>https://*.mathacademy.com/*</code>: To modify lesson pages with educational content</li>
+  <li><code>AWS/CloudFront domains</code>: To stream videos and send analytics</li>
+</ul>
+<p>No browsing data from other websites is collected.</p>
+
+<h2>Security</h2>
+<p>
+All communications are encrypted via TLS 1.2 or higher. Data at rest is encrypted using AWS KMS-managed keys.
+Access to stored data is restricted to authorized school personnel and system administrators.
+The Extension includes retry logic for failed analytics to ensure no data loss while maintaining user experience.
+</p>
+
+<h2>User Rights and Controls</h2>
+<ul>
+  <li><strong>Clear Session Data:</strong> Users can clear all session data through the Extension popup interface.</li>
+  <li><strong>Skip Videos:</strong> Introductory videos can be skipped; remedial videos after incorrect answers must be watched.</li>
+  <li><strong>Data Deletion:</strong> Schools or parents may request deletion of student data by contacting us.</li>
+  <li><strong>Access Removal:</strong> Schools can remove user access at any time by updating the approved users list.</li>
+</ul>
+
+<h2>Data Minimization</h2>
+<p>
+The Extension only activates on MathAcademy domains and only for approved school users.
+For users not on the approved list, the Extension performs a single access check and then remains completely inactive, collecting no
+data.
+Even for approved users, data is only collected during active lesson sessions.
+</p>
+
+<h2>Contact Information</h2>
+<p>
+For questions about this policy, data requests, or to request data deletion:<br />
+<strong>[privacy email]</strong><br />
+[School/Organization Name]<br />
+[Address]
+</p>
+
+<h2>Changes to This Policy</h2>
+<p>
+We may update this Privacy Policy as our Extension evolves or legal requirements change.
+Material changes will be communicated to partner schools and posted with an updated revision date.
+Continued use of the Extension after changes indicates acceptance of the updated policy.
+</p>
+
+<h2>Children's Privacy</h2>
+<p>
+This Extension is intended for use in educational settings with appropriate school consent.
+We do not knowingly collect personal information from children under 13 without school authorization.
+If we learn that we have collected personal information from a child without proper consent, we will delete that information promptly.
+</p>
+
+</body>
+</html>
