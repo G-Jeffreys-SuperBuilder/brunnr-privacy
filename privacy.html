@@ -22,7 +22,6 @@ users and schools.
 </p>
 
 <h2>Information We Collect</h2>
-<h3>For Approved School Users Only:</h3>
 <ul>
   <li><strong>User identification:</strong> Chrome profile email address obtained via Chrome Identity API for access validation and
 progress tracking.</li>
@@ -33,12 +32,6 @@ volume and playback rate settings; fullscreen status.</li>
 which specific questions were answered.</li>
   <li><strong>Session information:</strong> Unique session ID generated per browser session, timestamps for all interactions.</li>
   <li><strong>Video watch history:</strong> Which videos have been watched to completion (stored locally to prevent re-gating).</li>
-</ul>
-
-<h3>For Non-Approved Users:</h3>
-<ul>
-  <li><strong>Access check only:</strong> Chrome profile email is checked against our approved users list. If not approved, no further
-data is collected and the extension remains inactive.</li>
 </ul>
 
 <h2>How We Use Information</h2>
@@ -116,10 +109,8 @@ The Extension includes retry logic for failed analytics to ensure no data loss w
 
 <h2>Data Minimization</h2>
 <p>
-The Extension only activates on MathAcademy domains and only for approved school users.
-For users not on the approved list, the Extension performs a single access check and then remains completely inactive, collecting no
-data.
-Even for approved users, data is only collected during active lesson sessions.
+The Extension only activates on MathAcademy domains.
+Data is only collected during active lesson sessions.
 </p>
 
 <h2>Contact Information</h2>
