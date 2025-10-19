@@ -15,9 +15,8 @@
 
 <h2>Overview</h2>
 <p>
-The <strong>Brunnr Educational Enhancement Extension</strong> ("the Extension") provides supplemental "Mastery in a Minute"
-instructional videos
-for Grade 4 multiplication lessons on MathAcademy. This policy explains what information we collect, how it is used, and the rights of
+The <strong>Brunnr Educational Enhancement Extension</strong> ("the Extension") provides reading comprehension enhancement features
+for MathAcademy lessons. This policy explains what information we collect, how it is used, and the rights of
 users and schools.
 </p>
 
@@ -26,32 +25,33 @@ users and schools.
   <li><strong>User identification:</strong> Chrome profile email address obtained via Chrome Identity API for access validation and
 progress tracking.</li>
   <li><strong>Lesson context:</strong> Current lesson ID, lesson number, topic ID, and page URL from MathAcademy.</li>
-  <li><strong>Video engagement metrics:</strong> Play, pause, ended events; current playback time, duration, completion percentage;
-volume and playback rate settings; fullscreen status.</li>
-  <li><strong>Learning performance data:</strong> Quiz attempt results (correct/incorrect), time spent on lessons, completion status,
+  <li><strong>Reading timer data:</strong> Timer start and completion events; reading time duration calculated based on explanation length;
+which timers have been completed.</li>
+  <li><strong>Learning performance data:</strong> Question attempt results (correct/incorrect), time spent on lessons, completion status,
 which specific questions were answered.</li>
   <li><strong>Session information:</strong> Unique session ID generated per browser session, timestamps for all interactions.</li>
-  <li><strong>Video watch history:</strong> Which videos have been watched to completion (stored locally to prevent re-gating).</li>
+  <li><strong>Timer completion history:</strong> Which explanation reading timers have been completed (stored locally to prevent re-gating).</li>
 </ul>
 
 <h2>How We Use Information</h2>
 <ul>
-  <li>To verify school membership and provide access to educational content.</li>
-  <li>To select and display appropriate instructional videos based on lesson content.</li>
-  <li>To enforce video watching requirements when students answer questions incorrectly.</li>
-  <li>To track learning progress and video effectiveness for educational improvement.</li>
-  <li>To prevent re-gating of previously watched videos across sessions.</li>
+  <li>To verify school membership and provide access to enhanced learning features.</li>
+  <li>To calculate appropriate reading time based on explanation length (100 words per minute).</li>
+  <li>To enforce reading time requirements when students answer questions incorrectly.</li>
+  <li>To track learning progress and feature effectiveness for educational improvement.</li>
+  <li>To prevent re-gating of previously completed reading timers across sessions.</li>
   <li>To help teachers and administrators understand student engagement and performance.</li>
 </ul>
 
 <h2>Data Storage and Transmission</h2>
 <p>
-<strong>Local Storage:</strong> Video watch history and session data are stored locally in Chrome storage to maintain state across page
+<strong>Local Storage:</strong> Timer completion history and session data are stored locally in Chrome storage to maintain state across page
 loads and sessions.
 </p>
 <p>
 <strong>Remote Storage:</strong> Analytics and performance data are transmitted securely over HTTPS to our AWS-hosted backend
 infrastructure.
+</p>
 
 <h2>Data Sharing and Retention</h2>
 <p>
@@ -70,13 +70,12 @@ Privacy Act (FERPA).
 Student data remains under the control of the educational institution and is used solely for educational purposes.
 </p>
 
-<h2>Video Gating Mechanism</h2>
+<h2>Reading-Time Gating Mechanism</h2>
 <p>
-When a student answers a question incorrectly and a relevant remedial video exists, the Extension disables the "Continue" button until
-the student watches
-at least 95% of the video. This ensures students receive necessary support before progressing. The system remembers watched videos
-locally to avoid
-unnecessary repetition. Introductory videos at the start of lessons can be skipped at any time.
+When a student answers a question incorrectly, the Extension temporarily disables the "Continue" button and displays a countdown timer.
+The timer duration is calculated based on the explanation's word count at a reading rate of 100 words per minute (minimum 10 seconds).
+This ensures students take adequate time to read and understand explanations before progressing. The system remembers completed timers
+locally to avoid unnecessary repetition on the same question in future sessions.
 </p>
 
 <h2>Browser Permissions</h2>
@@ -85,10 +84,10 @@ The Extension requests the minimal permissions necessary to operate:
 </p>
 <ul>
   <li><code>identity & identity.email</code>: To verify school membership via Chrome profile email</li>
-  <li><code>storage</code>: To save video watch history and session data locally</li>
-  <li><code>activeTab</code>: To detect MathAcademy lessons and inject videos</li>
-  <li><code>https://*.mathacademy.com/*</code>: To modify lesson pages with educational content</li>
-  <li><code>AWS/CloudFront domains</code>: To stream videos and send analytics</li>
+  <li><code>storage</code>: To save timer completion history and session data locally</li>
+  <li><code>activeTab</code>: To detect MathAcademy lessons and implement reading gates</li>
+  <li><code>https://*.mathacademy.com/*</code>: To modify lesson pages and control Continue buttons during reading periods</li>
+  <li><code>AWS API Gateway domains</code>: To send analytics and validate user access</li>
 </ul>
 <p>No browsing data from other websites is collected.</p>
 
@@ -102,7 +101,7 @@ The Extension includes retry logic for failed analytics to ensure no data loss w
 <h2>User Rights and Controls</h2>
 <ul>
   <li><strong>Clear Session Data:</strong> Users can clear all session data through the Extension popup interface.</li>
-  <li><strong>Skip Videos:</strong> Introductory videos can be skipped; remedial videos after incorrect answers must be watched.</li>
+  <li><strong>Timer Persistence:</strong> Once a reading timer is completed for a specific question, it won't re-gate that question in future sessions.</li>
   <li><strong>Data Deletion:</strong> Schools or parents may request deletion of student data by contacting us.</li>
   <li><strong>Access Removal:</strong> Schools can remove user access at any time by updating the approved users list.</li>
 </ul>
@@ -111,6 +110,7 @@ The Extension includes retry logic for failed analytics to ensure no data loss w
 <p>
 The Extension only activates on MathAcademy domains.
 Data is only collected during active lesson sessions.
+Non-approved users experience no modifications to their MathAcademy experience, and no data is collected from them beyond the initial access verification check.
 </p>
 
 <h2>Contact Information</h2>
